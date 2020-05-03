@@ -1,1 +1,9 @@
+from scipy.stats import f
 
+df1=int(input("enter dof1"))
+df2 =int( input("enter dof2"))
+pd=float(input("enter cumulative probability "))
+alpha= float(1-pd) # getting alpha
+x = f.ppf(0.90, df1, df2)
+vals = f.cdf(x, df1, df2)   # cdf calculating Cumulative distribution function.
+print(vals)   # printing  f_distribution value

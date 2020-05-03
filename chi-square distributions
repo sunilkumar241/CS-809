@@ -1,1 +1,8 @@
-
+from scipy.stats import chi2
+import numpy as  np
+def chi_calculator( p,df ):
+    x=chi2.isf(p,df)
+    x=round(x,4)
+    return x
+p, df =float(input("enter p")),float(input("enter dof"))
+print(chi_calculator(p,df))

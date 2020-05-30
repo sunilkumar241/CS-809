@@ -1,8 +1,8 @@
-from scipy.stats import t
-# define probability
-p =float(input("enter the probability"))
-df = int(input("enter the degree of freedom"))
-# retrieve value <= probability
-value = t.ppf(p, df)
-print(round(value,5))
-# confirm with cdf p = t.cdf(value, df) print(p)
+from scipy import stats as s
+
+x=float(input("Enter the probability density"))
+dof=int(input("Enter the value of degree of freedom:"))
+T_dis=round(s.t.ppf((1-x),dof),5) # calculating t distribution
+print("value of T-distribution is:", T_dis) 
+T_dis0= round(s.t.cdf(T_dis,dof),5) # initial value
+print("value for which we define T-distribution is:", 1-T_dis0)

@@ -1,8 +1,6 @@
-from scipy.stats import chi2
-import numpy as  np
-def chi_calculator( p,df ):
-    x=chi2.isf(p,df)
-    x=round(x,4)
-    return x
-p, df =float(input("enter p")),float(input("enter dof"))
-print(chi_calculator(p,df))
+from scipy import stats as s
+p, df =float(input("enter probability density")),float(input("enter dof"))
+chi=round(s.chi2.ppf(p,df),5)  # calculating chiditribution
+print("chi_distribution",chi)
+chi0=round(s.chi2.cdf(chi,df),5)
+print(" initial value is",chi0)

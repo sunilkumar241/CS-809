@@ -1,9 +1,8 @@
-from scipy.stats import f
-
-df1=int(input("enter dof1"))
-df2 =int( input("enter dof2"))
-pd=float(input("enter cumulative probability "))
-alpha= float(1-pd) # getting alpha
-x = f.ppf(0.90, df1, df2)
-vals = f.cdf(x, df1, df2)   # cdf calculating Cumulative distribution function.
-print(vals)   # printing  f_distribution value
+from scipy import stats as st
+x=float(input("Enter the probability density"))
+dof1,dof2=int(input("Enter the degree of freedom 1")),int(input("Enter the degree of freedom 2"))
+alpha=float(1-x)
+F_dis=round(st.f.ppf(alpha,dof1,dof2),5) # calculating distribution
+print("F-distribution is:",F_dis)
+F_dis0=round((1-st.f.cdf(F_dis,dof1,dof2)),5) # initial
+print("initial value is:",F_dis0)
